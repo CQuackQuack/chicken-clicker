@@ -661,6 +661,10 @@ function higherCEPS () {
                             info.changeScoreBy(-1 * ((numAutoChicken41 * numAutoChicken41 + numAutoChicken41 * 25) * 5))
                             numAutoChicken41 += 1
                             music.play(music.melodyPlayable(music.baDing), music.PlaybackMode.InBackground)
+                            sprites.destroyAllSpritesOfKind(SpriteKind.auto)
+                            sprites.destroyAllSpritesOfKind(SpriteKind.auto2)
+                            sprites.destroyAllSpritesOfKind(SpriteKind.auto3)
+                            sprites.destroyAllSpritesOfKind(SpriteKind.auto4)
                             autoCEPS4LagEliminator3000 = sprites.create(img`
                                 . . . . . . . . . . . . . . . . 
                                 . . . . . . . . . . . . . . . . 
@@ -681,10 +685,6 @@ function higherCEPS () {
                                 `, SpriteKind.auto4)
                             autoCEPS3ChickenGPT.setPosition(randint(0, 160), randint(0, 120))
                             basePointsGenrtByAutoChicken4 = numAutoChicken1 - 1 + (numAutoChicken21 - 1) * 10 + (numAutoChicken31 - 1) * 150
-                            sprites.destroy(autoCEPS1Chicken)
-                            sprites.destroy(autoCEPS2Farm)
-                            sprites.destroy(autoCEPS3ChickenGPT)
-                            sprites.destroy(autoCEPS4LagEliminator3000)
                         } else {
                             music.play(music.melodyPlayable(music.buzzer), music.PlaybackMode.InBackground)
                             game.splash("not enough money!!", "go get more ~E!")
