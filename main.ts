@@ -465,6 +465,71 @@ sprites.onOverlap(SpriteKind.auto, SpriteKind.Detector, function (sprite, otherS
     info.changeScoreBy(autoEggProductionQuantity)
     sprite.startEffect(effects.spray, 500)
 })
+sprites.onOverlap(SpriteKind.auto4, SpriteKind.Detector, function (sprite, otherSprite) {
+    animation.runImageAnimation(
+    sprite,
+    [img`
+        . . b b b b . . 
+        . b 5 5 5 5 b . 
+        b 5 d 3 3 d 5 b 
+        b 5 3 5 5 1 5 b 
+        c 5 3 5 5 1 d c 
+        c d d 1 1 d d c 
+        . f d d d d f . 
+        . . f f f f . . 
+        `,img`
+        . . b b b . . . 
+        . b 5 5 5 b . . 
+        b 5 d 3 d 5 b . 
+        b 5 3 5 1 5 b . 
+        c 5 3 5 1 d c . 
+        c 5 d 1 d d c . 
+        . f d d d f . . 
+        . . f f f . . . 
+        `,img`
+        . . . b b . . . 
+        . . b 5 5 b . . 
+        . b 5 d 1 5 b . 
+        . b 5 3 1 5 b . 
+        . c 5 3 1 d c . 
+        . c 5 1 d d c . 
+        . . f d d f . . 
+        . . . f f . . . 
+        `,img`
+        . . . b b . . . 
+        . . b 5 5 b . . 
+        . . b 1 1 b . . 
+        . . b 5 5 b . . 
+        . . b d d b . . 
+        . . c d d c . . 
+        . . c 3 3 c . . 
+        . . . f f . . . 
+        `,img`
+        . . . b b . . . 
+        . . b 5 5 b . . 
+        . b 5 1 d 5 b . 
+        . b 5 1 3 5 b . 
+        . c d 1 3 5 c . 
+        . c d d 1 5 c . 
+        . . f d d f . . 
+        . . . f f . . . 
+        `,img`
+        . . . b b b . . 
+        . . b 5 5 5 b . 
+        . b 5 d 3 d 5 b 
+        . b 5 1 5 3 5 b 
+        . c d 1 5 3 5 c 
+        . c d d 1 d 5 c 
+        . . f d d d f . 
+        . . . f f f . . 
+        `],
+    autoEggProductionSpeed / 6,
+    false
+    )
+    pause(autoEggProductionSpeed)
+    info.changeScoreBy(autoEggProductionQuantity * basePointsGenrtByAutoChicken4)
+    sprite.startEffect(effects.spray, 500)
+})
 function higherCEPS () {
     textSprite.setText("CEPS UPGRADES")
     textSprite.setPosition(80, 40)
@@ -551,7 +616,7 @@ function higherCEPS () {
             textSprite2.setText("")
         } else if (story.checkLastAnswer("MORE")) {
             while (!(story.checkLastAnswer("back"))) {
-                story.showPlayerChoices("[" + (numAutoChicken31 * numAutoChicken31 + numAutoChicken31 * 25) * 100 + "~E] ChickenGPT: gives 50x eggs of a normal chicken. Glitches occasionally and produces 10x or 0.1x the number of eggs. [The all-new ChickenGPT, producing eggs at an unprecedented rate. Of course, it still has bugs. But dont tell it that.]", "[" + (numAutoChicken41 * numAutoChicken41 + numAutoChicken41 * 25) * 5 + "~E] Lag Eliminator 3000: Combines all chickens, farms and ChickenGPTs into one. [It eliminates all of the lag from your computer. Well, at least until you get more chickens.]", "MORE", "back")
+                story.showPlayerChoices("[" + (numAutoChicken31 * numAutoChicken31 + numAutoChicken31 * 25) * 100 + "~E] ChickenGPT: gives 50x eggs of a normal chicken. Glitches occasionally and produces 10x or 0.1x the number of eggs. [The all-new ChickenGPT, producing eggs at an unprecedented rate. Of course, it still has bugs. But dont tell it that.]", "[" + (numAutoChicken41 * numAutoChicken41 + numAutoChicken41 * 25) * 5 + "~E] Lag Eliminator 3000: Combines all chickens, farms, ChickenGPTs and other Lag Eliminator 3000s into one. [It eliminates all of the lag from your computer. Well, at least until you get more chickens.]", "MORE", "back")
                 if (story.checkLastAnswer("[" + (numAutoChicken31 * numAutoChicken31 + numAutoChicken31 * 25) * 100 + "~E] ChickenGPT: gives 50x eggs of a normal chicken. Glitches occasionally and produces 10x or 0.1x the number of eggs. [The all-new ChickenGPT, producing eggs at an unprecedented rate. Of course, it still has bugs. But dont tell it that.]")) {
                     textSprite2.setText("Do you want to buy this?")
                     textSprite2.setPosition(80, 55)
@@ -587,7 +652,7 @@ function higherCEPS () {
                         }
                     }
                     textSprite2.setText("")
-                } else if (story.checkLastAnswer("[" + (numAutoChicken41 * numAutoChicken41 + numAutoChicken41 * 25) * 5 + "~E] Lag Eliminator 3000: Combines all chickens, farms and ChickenGPTs into one. [It eliminates all of the lag from your computer. Well, at least until you get more chickens.]")) {
+                } else if (story.checkLastAnswer("[" + (numAutoChicken41 * numAutoChicken41 + numAutoChicken41 * 25) * 5 + "~E] Lag Eliminator 3000: Combines all chickens, farms, ChickenGPTs and other Lag Eliminator 3000s into one. [It eliminates all of the lag from your computer. Well, at least until you get more chickens.]")) {
                     textSprite2.setText("Do you want to buy this?")
                     textSprite2.setPosition(80, 55)
                     story.showPlayerChoices("Yes", "No")
@@ -596,7 +661,7 @@ function higherCEPS () {
                             info.changeScoreBy(-1 * ((numAutoChicken41 * numAutoChicken41 + numAutoChicken41 * 25) * 5))
                             numAutoChicken41 += 1
                             music.play(music.melodyPlayable(music.baDing), music.PlaybackMode.InBackground)
-                            autoCEPS3ChickenGPT = sprites.create(img`
+                            autoCEPS4LagEliminator3000 = sprites.create(img`
                                 . . . . . . . . . . . . . . . . 
                                 . . . . . . . . . . . . . . . . 
                                 . . . . . . b b b b . . . . . . 
@@ -615,6 +680,11 @@ function higherCEPS () {
                                 . . . . . c c c c c c . . . . . 
                                 `, SpriteKind.auto4)
                             autoCEPS3ChickenGPT.setPosition(randint(0, 160), randint(0, 120))
+                            basePointsGenrtByAutoChicken4 = numAutoChicken1 - 1 + (numAutoChicken21 - 1) * 10 + (numAutoChicken31 - 1) * 150
+                            sprites.destroy(autoCEPS1Chicken)
+                            sprites.destroy(autoCEPS2Farm)
+                            sprites.destroy(autoCEPS3ChickenGPT)
+                            sprites.destroy(autoCEPS4LagEliminator3000)
                         } else {
                             music.play(music.melodyPlayable(music.buzzer), music.PlaybackMode.InBackground)
                             game.splash("not enough money!!", "go get more ~E!")
@@ -804,10 +874,11 @@ sprites.onOverlap(SpriteKind.auto2, SpriteKind.Detector, function (sprite, other
     info.changeScoreBy(autoEggProductionQuantity * 10)
     sprite.startEffect(effects.spray, 500)
 })
-let numAutoChicken41 = 0
+let autoCEPS4LagEliminator3000: Sprite = null
 let autoCEPS2Farm: Sprite = null
 let totalCEPSOfAutos123 = 0
 let autoCEPS1Chicken: Sprite = null
+let basePointsGenrtByAutoChicken4 = 0
 let autoCEPS3ChickenGPT: Sprite = null
 let textSprite2: TextSprite = null
 let textSprite: TextSprite = null
@@ -815,6 +886,7 @@ let textSprite3: TextSprite = null
 let Glitch = 0
 let chicken: Sprite = null
 let CEM = 0
+let numAutoChicken41 = 0
 let numAutoChicken31 = 0
 let numAutoChicken21 = 0
 let numAutoChicken1 = 0
@@ -954,6 +1026,10 @@ autoEggProductionQuantity = 1
 numAutoChicken1 = 1
 numAutoChicken21 = 1
 numAutoChicken31 = 1
+numAutoChicken41 = 1
+let numAutoChicken = 0
+let numAutoChicken2 = 0
+let numAutoChicken3 = 0
 CEM = 1
 chicken = sprites.create(img`
     . . . . . . . . . . b 5 b . . . 
